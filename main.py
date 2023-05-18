@@ -7,10 +7,10 @@ def main():
 	excelFileName = setup()
 	#If sheet_name argument is none, all sheets are read.
 	try:
-		df = pd.read_excel(excelFileName)
+		df = pd.read_excel(excelFileName + '.xlsx')
 
 	except FileNotFoundError:
-		print(f'Error: File {excelFileName} not found')
+		print(f'Error: File {excelFileName}.xlsx not found')
 		exit(0)
 
 	xColName = df.columns[0]
@@ -20,7 +20,7 @@ def main():
 	yValues = []
 
 	for index, row in df.iterrows():
-		print(row[xColName], row[yColName])
+		#print(row[xColName], row[yColName])
 		xValues.append(row[xColName])
 		yValues.append(row[yColName])
 
@@ -28,7 +28,7 @@ def main():
 	plt.xlabel(xColName, fontsize=12)
 	plt.ylabel(yColName, fontsize=12)
 	#plt.show()
-	plt.savefig('sample.png')
+	plt.savefig(f'{excelFileName}.png')
 	
 
 
