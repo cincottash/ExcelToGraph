@@ -5,7 +5,6 @@ from setup import *
 def main():
 
 	excelFileName = setup()
-	#If sheet_name argument is none, all sheets are read.
 	try:
 		df = pd.read_excel(excelFileName + '.xlsx')
 
