@@ -19,7 +19,7 @@ def main():
 	yValues = []
 
 	for index, row in df.iterrows():
-		#print(row[xColName], row[yColName])
+		print(row[xColName], row[yColName])
 		xValues.append(row[xColName])
 		yValues.append(row[yColName])
 
