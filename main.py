@@ -1,9 +1,17 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from setup import *
 
 def main():
+
+	excelFileName = setup()
 	#If sheet_name argument is none, all sheets are read.
-	df = pd.read_excel('sample.xlsx')
+	try:
+		df = pd.read_excel(excelFileName)
+
+	except FileNotFoundError:
+		print(f'Error: File {excelFileName} not found')
+		exit(0)
 
 	xColName = df.columns[0]
 	yColName = df.columns[1]
@@ -19,7 +27,8 @@ def main():
 	plt.scatter(xValues, yValues)
 	plt.xlabel(xColName, fontsize=12)
 	plt.ylabel(yColName, fontsize=12)
-	plt.show()
+	#plt.show()
+	plt.savefig('sample.png')
 	
 
 
