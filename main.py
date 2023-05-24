@@ -12,20 +12,19 @@ def main():
 		print(f'Error: File {excelFileName}.xlsx not found')
 		exit(0)
 
-	xColName = df.columns[0]
-	yColName = df.columns[1]
+	print()
 
 	xValues = []
 	yValues = []
 
 	for index, row in df.iterrows():
-		print(row[xColName], row[yColName])
-		xValues.append(row[xColName])
-		yValues.append(row[yColName])
+		print(row[df.columns[0]], row[df.columns[1]])
+		xValues.append(row[df.columns[0]])
+		yValues.append(row[df.columns[1]])
 
 	plt.scatter(xValues, yValues)
-	plt.xlabel(xColName, fontsize=12)
-	plt.ylabel(yColName, fontsize=12)
+	plt.xlabel(df.columns[0], fontsize=12)
+	plt.ylabel(df.columns[1], fontsize=12)
 	#plt.show()
 	plt.savefig(f'{excelFileName}.png')
 	
